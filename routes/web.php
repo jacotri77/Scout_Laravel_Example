@@ -16,6 +16,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/posts/{post}', function ($post) {
-    return view ('post');
-});
+Route::get('/posts/{post}','PostsController@show');
