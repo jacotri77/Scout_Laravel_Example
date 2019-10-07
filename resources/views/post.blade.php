@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Things</title>
+    <title>Blog Posts</title>
 </head>
 <body>
-    <p>test complete</p>
+    <h1>
+        Here is the post you were looking for!
+    </h1>
+    <p>{{ $post->body }}</p>
 </body>
 </html>
