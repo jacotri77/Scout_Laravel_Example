@@ -17,3 +17,5 @@ Route::get('/services', 'PagesController@services');
 
 
 #Route::get('/posts/{post}','PostsController@show');
+
+Route::resource('posts', 'PostsController');

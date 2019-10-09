@@ -9,15 +9,36 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    public function show($slug)
-    {
-        return view('post', [
-            'post' => Post::where('slug', $slug)->firstOrFail()
-        ]);
-    }
+  public function show($id)
+  {
+    $post = Post::find($id);
+    return view('posts.show')->with('post', $post);
+  }
 
-    public function update()
-    {
-        return 'Hello';
-    }
+  public function update(Request $request, $id)
+  {
+    //
+  }
+
+  public function store(Request $request)
+  {
+    //
+  }
+
+  public function destroy($id)
+  {
+    //
+  }
+
+  public function create()
+  {
+    //
+  }
+
+  public function index()
+  {
+    $posts = Post::orderBy('title', 'desc')->paginate(1);
+    return view('posts.index')->with('posts', $posts);
+  }
+
 }
