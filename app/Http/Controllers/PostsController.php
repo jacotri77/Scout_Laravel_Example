@@ -38,6 +38,7 @@ class PostsController extends Controller
   public function index()
   {
     $posts = Post::orderBy('title', 'desc')->paginate(1);
+    sleep(60);
     return view('posts.index')->with('posts', $posts);
   }
 
