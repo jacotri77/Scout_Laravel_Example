@@ -8,6 +8,7 @@
           <div class="card-body" >
             <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
             <small>Written on {{$post->created_at}}</small>
+            <small class='float-right'>Written by {{$post->user_id}}</small>
           </div>
         </div><br>
       @endforeach
