@@ -7,10 +7,10 @@
         <div class="card col-md-10">
           <div class="card-body" >
             <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-            <small>Written on {{$post->created_at}}</small>
-            <small class='float-right'>Written by {{$post->user_id}}</small>
+            <small>Written on {{$post->created_at->format('Y-m-d')}}
+                  by {{$post->user->name}}</small>
           </div>
-        </div><br>
+        </div>
       @endforeach
       {{$posts->links()}}
     @else

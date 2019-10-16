@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+      $this->middleware('auth', ['except' => ['index', 'show']]);
+  }
+
   public function show($id)
   {
     $post = Post::find($id);
@@ -19,6 +29,10 @@ class PostsController extends Controller
   public function edit($id)
   {
     $post = Post::find($id);
+    // CHeck for correct user
+    if(auth()->user()->id !== $post->user_id) {
+      return redirect('/posts')->with('error', 'You are not authorized to do that!!');
+    }
     return view('posts.edit')->with('post', $post);
   }
 
@@ -56,6 +70,9 @@ class PostsController extends Controller
   public function destroy($id)
   {
     $post = Post::find($id);
+    if(auth()->user()->id !== $post->user_id) {
+      return redirect('/posts')->with('error', 'You are not authorized to do that!!');
+    }
     $post->delete();
     return redirect('/posts')->with('success', 'Post Removed');
   }
