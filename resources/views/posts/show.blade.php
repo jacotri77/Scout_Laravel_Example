@@ -3,6 +3,7 @@
 @section('content')
   <a href="/posts" class="btn btn-default">Go Back</a>
   <h1>{{$post->title}}</h1> 
+  <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}"><br><br>
   <div>
     {!!$post->body!!}
   </div>
@@ -11,7 +12,7 @@
       by {{$post->user->name}}</small>
   <hr>
   @if(!Auth::guest())
-  @if(Auth::user()->if == $post->user_id)
+  @if(Auth::user()->id == $post->user_id)
   <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
 
   {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' =>'float-right' ])!!}
