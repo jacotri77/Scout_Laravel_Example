@@ -96,6 +96,7 @@ return [
             'prefix_indexes' => true,
         ],
 
+    
     ],
 
     /*
