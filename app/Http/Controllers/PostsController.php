@@ -30,8 +30,9 @@ class PostsController extends Controller
 
   public function edit($id)
   {
-    ScoutApm::addContext("Post ID", $id);
+    
     $post = Post::find($id);
+    ScoutApm::addContext("Post ID again", $post->id);
     // CHeck for correct user
     if(auth()->user()->id !== $post->user_id) {
       return redirect('/posts')->with('error', 'You are not authorized to do that!!');
