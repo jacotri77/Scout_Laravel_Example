@@ -26,7 +26,7 @@ class PostsController extends Controller
     $post = Post::find($id);
     sleep(1);
     return view('posts.show')->with('post', $post);
-  
+    ScoutApm::addContext("URI Info", Route::view('/posts'));
   }
 
   public function edit($id)
