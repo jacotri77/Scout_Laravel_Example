@@ -26,13 +26,15 @@ class PostsController extends Controller
     $post = Post::find($id);
     sleep(1);
     return view('posts.show')->with('post', $post);
+    ScoutApm::addContext("URI", '/posts/{{$id}}');
   }
 
   public function edit($id)
   {
     
     $post = Post::find($id);
-    ScoutApm::addContext("Post ID again", $post->id);
+    ScoutApm::addContext("Post ID", $post->id);
+
     // CHeck for correct user
     if(auth()->user()->id !== $post->user_id) {
       return redirect('/posts')->with('error', 'You are not authorized to do that!!');
