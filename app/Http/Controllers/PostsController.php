@@ -34,7 +34,6 @@ class PostsController extends Controller
     
     $post = Post::find($id);
     ScoutApm::addContext("Post ID", $post->id);
-
     // CHeck for correct user
     if(auth()->user()->id !== $post->user_id) {
       return redirect('/posts')->with('error', 'You are not authorized to do that!!');
@@ -70,6 +69,7 @@ class PostsController extends Controller
     if($request->hasFile('cover_image')){
       $post->cover_image = $fileNameToStore;
     }
+    ScoutApm::addContext("Post ID", $post->id);
     $post->save();
 
     return redirect('posts/')->with('success', 'Post Updated');
