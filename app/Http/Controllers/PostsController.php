@@ -30,7 +30,7 @@ class PostsController extends Controller
 
   public function edit($id)
   {
-    ScoutApm::addContext("testing", $id);
+    ScoutApm::addContext("Post ID", $id);
     $post = Post::find($id);
     // CHeck for correct user
     if(auth()->user()->id !== $post->user_id) {
@@ -93,7 +93,7 @@ class PostsController extends Controller
       //Upload Image
       $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
     }else{
-      $fileNameToStore = 'noimage.png';
+      $fileNameToStore = 'noimage.jpg';
     }
     //Create Post
     $post = new Post;
