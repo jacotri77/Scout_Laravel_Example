@@ -30,7 +30,7 @@ class PostsController extends Controller
 
   public function edit($id)
   {
-    ScoutApm::addContext("post", $post->id);
+    ScoutApm::addContext("testing", $id);
     $post = Post::find($id);
     // CHeck for correct user
     if(auth()->user()->id !== $post->user_id) {
@@ -129,7 +129,7 @@ class PostsController extends Controller
 
   public function index()
   {
-    ScoutApm::addContext("suer", $post->user()->name);
+    
     $posts = Post::orderBy('created_at', 'desc')->paginate(10);
     sleep(1);
     return view('posts.index')->with('posts', $posts);
