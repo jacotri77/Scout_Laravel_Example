@@ -7,6 +7,7 @@ use App\Post;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Scoutapm\Laravel\Facades\ScoutApm;
 
 class PostsController extends Controller
 {
@@ -29,6 +30,7 @@ class PostsController extends Controller
 
   public function edit($id)
   {
+    ScoutApm::addContext("post", "things");
     $post = Post::find($id);
     // CHeck for correct user
     if(auth()->user()->id !== $post->user_id) {
