@@ -49,7 +49,7 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysql' => array(
+        'mysql' => [
             'driver'    => 'mysql',
             'host'      => $host,
             'database'  => $database,
@@ -58,7 +58,7 @@ return [
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
-        ),
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',
