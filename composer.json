@@ -13,7 +13,8 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "5.8",
-        "scoutapp/scout-apm-laravel": "^0.2.0",
+        "scoutapp/scout-apm-laravel": "^0.2.3",
+        "scoutapp/scout-apm-php": "^0.2.3",
         "unisharp/laravel-ckeditor": "^4.7"
     },
     "require-dev": {
